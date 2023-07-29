@@ -25,10 +25,12 @@ public class Appium1_Gesture {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");//appiumdan gelen
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "masutcu");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
+        capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Lenovo\\IdeaProjects\\Appium\\src\\Apps\\GestureTool.apk");
+
         //capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-        capabilities.setCapability("appPackage", "com.android.settings");
-        capabilities.setCapability("appActivity", "com.android.settings.Settings");
+        capabilities.setCapability("appPackage", "com.davemac327.gesture.tool");
+        capabilities.setCapability("appActivity", "com.davemac327.gesture.tool.GestureBuilderActivity");
 
 
 

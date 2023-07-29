@@ -31,7 +31,7 @@ public class Appium2_apidemos {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");//appiumdan gelen
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "masutcu");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
 
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
