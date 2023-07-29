@@ -58,7 +58,7 @@ public class Appium1_Gesture {
         System.out.println("test ana sayfa açıldı");
 
         //session close
-        //driver.close();
+        driver.quit();
 
 
 
