@@ -1,18 +1,23 @@
 package appium;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Set;
 
-public class Appium3_Amazon {
+public class AppiumNativeChrome {
 
     @Test
-    public void test() throws MalformedURLException {
+    public void test() throws MalformedURLException, InterruptedException {
 
         //Appium1 sürüm ayarları
         DesiredCapabilities capabilities=new DesiredCapabilities();
@@ -26,9 +31,6 @@ public class Appium3_Amazon {
         capabilities.setCapability("appPackage", "com.android.chrome");
         capabilities.setCapability("appActivity", "com.google.android.apps.chrome.Main");
 
-
-
-
         // Appium server URL
         URL url = new URL("http://127.0.0.1:4723");
 
@@ -36,11 +38,19 @@ public class Appium3_Amazon {
         AndroidDriver driver = new AndroidDriver(url, capabilities);
         // Navigate to Amazon.com.tr
         driver.get("https://www.amazon.com.tr");
+        System.out.println("app acıldığındaki tur = " + driver.getContext());
+        Thread.sleep(5000);
 
 
-        //capabilities.setCapability("app", "C:\\Users\\Lenovo\\IdeaProjects\\Appium\\src\\Apps\\Gesture Tool_1.3_Apkpure.apk");
+        WebElement homeScreenLogo=driver.findElement(new AppiumBy.ByAccessibilityId("Amazon.com.tr"));
+        Assert.assertTrue(homeScreenLogo.isDisplayed());
+        System.out.println("ana sayfadayız");
+
+        //System.out.println(driver.getCurrentUrl()+"<========== url ");
+
+        WebElement singInButton= driver.findElement(By.xpath("//android.view.View[@content-desc=\"Sign in ›\"]/android.widget.TextView"));
+        singInButton.click();
+
 
     }
-
 }
-

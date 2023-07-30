@@ -9,25 +9,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.TestBase;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Appium4_Calculator {
+public class Appium4_Calculator  {
     @Test
     public void test() throws MalformedURLException, InterruptedException {
         //Appium1 sürüm ayarları
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+      DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");//appiumdan gelen
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "VirtualDevice");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
-        capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Lenovo\\IdeaProjects\\Appium\\src\\Apps\\Calculator_8.4.1.apk");
+      capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");//appiumdan gelen
+      capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
+      capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "VirtualDevice");
+      capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
+      capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Lenovo\\IdeaProjects\\Appium\\src\\Apps\\Calculator_8.4.1.apk");
 
-        // Initialize AndroidDriver
-        AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
-        System.out.println("app yüklendi");
+      // Initialize AndroidDriver
+      AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
+      System.out.println("app yüklendi");
 
         WebElement num1= driver.findElement(By.id("com.google.android.calculator:id/digit_1"));
         WebElement num2= driver.findElement(By.id("com.google.android.calculator:id/digit_2"));
@@ -69,19 +70,7 @@ public class Appium4_Calculator {
         Assert.assertEquals(preRst,fnRst);
 
 
-
-
-
-
-        //session close
-        //driver.quit();
-
     }
-
-
-
-
-
 
 
 }
