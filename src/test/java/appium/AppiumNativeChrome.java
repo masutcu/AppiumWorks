@@ -42,7 +42,7 @@ public class AppiumNativeChrome {
         Thread.sleep(5000);
 
 
-        WebElement homeScreenLogo=driver.findElement(new AppiumBy.ByAccessibilityId("Amazon.com.tr"));
+        WebElement homeScreenLogo=driver.findElement(AppiumBy.accessibilityId("Amazon.com.tr"));
         Assert.assertTrue(homeScreenLogo.isDisplayed());
         System.out.println("ana sayfadayız");
 
