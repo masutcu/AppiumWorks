@@ -12,14 +12,18 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Set;
 
 public class AppiumBrowserChrome {
+    private static final String Appium = "http://127.0.0.1:4723";
+    DesiredCapabilities capabilities;
+    AndroidDriver driver;
 
     @Test
     public void test() throws MalformedURLException, InterruptedException {
 
         //Appium1 sürüm ayarları
-        DesiredCapabilities capabilities=new DesiredCapabilities();
+        capabilities=new DesiredCapabilities();
 
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");//appiumdan gelen
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
@@ -27,11 +31,18 @@ public class AppiumBrowserChrome {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME,"chrome");
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"60000");
-        AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
+        //capabilities.setCapability("chromeDriverExecutable","");
+        driver = new AndroidDriver(new URL(Appium), capabilities);
         driver.get("https://www.amazon.com.tr");
 
         System.out.println("app acıldığındaki tur = " + driver.getContext());
-        // Navigate to Amazon.com.tr
+        Set<String> butunturler= driver.getContextHandles();
+        for(String tur: butunturler){
+            System.out.println(tur);
+            if(tur.contains("WEBVIEW_chrome")){
+                driver.context(tur);
+            }
+        }
 
         System.out.println("app acıldığındaki tur"+driver.getContext());
         Thread.sleep(3000);
