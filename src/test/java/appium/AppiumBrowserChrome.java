@@ -28,8 +28,9 @@ public class AppiumBrowserChrome {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");//appiumdan gelen
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "masutcu");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME,"chrome");
+        //yeni bir komut almadığında 60 saniye sonra ana sayfaya döner
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,"60000");
         //capabilities.setCapability("chromeDriverExecutable","");
         driver = new AndroidDriver(new URL(Appium), capabilities);

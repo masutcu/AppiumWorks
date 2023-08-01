@@ -14,6 +14,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Appium08UiSelector {
+
+
     @Test
     public void test() throws MalformedURLException, InterruptedException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -28,7 +30,7 @@ public class Appium08UiSelector {
         capabilities.setCapability("noReset","true");
 
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
-//resourceId ile
+        //resourceId ile
         // driver.findElementByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/addButton\")").click();
         //indexle  ilk tuş tıkla
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").index(0)")).click();
