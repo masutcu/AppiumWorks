@@ -31,12 +31,14 @@ public class Appium2_apidemos {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");//appiumdan gelen
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "masutcu");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "13");
+        capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Lenovo\\IdeaProjects\\Appium\\src\\Apps\\ApiDemos-debug.apk");
+
 
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
-        //capabilities.setCapability("appPackage", "com.google.android.permissioncontroller");
-        //capabilities.setCapability("appActivity", "com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity");
+        capabilities.setCapability("appPackage", "com.google.android.permissioncontroller");
+        capabilities.setCapability("appActivity", "com.android.permissioncontroller.permission.ui.ReviewPermissionsActivity");
 
         //capabilities.setCapability("appPackage", "com.google.android.apps.nexuslauncher");
         //capabilities.setCapability("appActivity", "com.google.android.apps.nexuslauncher.NexusLauncherActivity");
