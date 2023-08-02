@@ -2,9 +2,7 @@ package appium;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
@@ -13,8 +11,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Appium08UiSelector {
-
+public class Appium09UiSelectorTestCase {
 
     @Test
     public void test() throws MalformedURLException, InterruptedException {
@@ -30,25 +27,31 @@ public class Appium08UiSelector {
         capabilities.setCapability("noReset","true");
 
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
-        //resourceId ile
-        // driver.findElementByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/addButton\")").click();
-        //indexle  ilk tuş tıkla
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").index(0)")).click();
-        //sonraki sayfada ikinci tuş discard
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").index(1)")).click();
-        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").text(\"Test\")")).click();
-        driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").index(0)")).click();
-        //driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").textStartsWith('Add')")).click();
+        //add button tikladik
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").textStartsWith(\"Add\")")).click();
 
         Thread.sleep(5000);
-        //aşağıda done butonu enabled ın value si false, ekrana false yazar.
-        System.out.println(driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/done\").enabled(false)")).getAttribute("enabled"));
 
+        String isFalse = driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/done\").enabled(false)")).getAttribute("enabled");
 
+        Assert.assertEquals(isFalse,"false");
+
+        WebElement textBox = driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/gesture_name\")"));
+        textBox.sendKeys("text");
+        Thread.sleep(5000);
+        WebElement blackScreen = driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/gestures_overlay\")"));
+        blackScreen.click();
+        String isTrue = driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/done\").enabled(true)")).getAttribute("enabled");
+
+        Assert.assertEquals(isTrue,"true");
+
+        System.out.println("done button enabled");
+
+        driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/done\")")).click();
+
+        Thread.sleep(5000);
         //session kapat
 
-        driver.quit();
+//        driver.closeApp();
     }
-
-
 }
