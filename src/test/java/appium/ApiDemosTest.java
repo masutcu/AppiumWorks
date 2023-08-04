@@ -32,7 +32,7 @@ public class ApiDemosTest {
 
         //api demos butonuna tikla ama bu buton yeni sürüm apk da yok
         //driver.findElement(By.xpath("//android.widget.TextView[@text='API Demos']")).click();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         //preference butonuna tikladik
         driver.findElement(By.xpath("//android.widget.TextView[@text='Preference']")).click();
         //preference dependencies butonuna bastik
@@ -57,7 +57,7 @@ public class ApiDemosTest {
         Thread.sleep(10000);
         //session kapat
 
-        driver.quit();
+        //driver.quit();
 
     }
 }
