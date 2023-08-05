@@ -77,6 +77,7 @@ public class Appium6NativeChrome {
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+
+        //driver.quit();
     }
 }

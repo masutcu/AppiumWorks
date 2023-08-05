@@ -50,8 +50,7 @@ public class Appium09UiSelectorTestCase {
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().resourceId(\"com.davemac327.gesture.tool:id/done\")")).click();
 
         Thread.sleep(5000);
-        //session kapat
-
-//        driver.closeApp();
+        // session kapat
+        // driver.closeApp();
     }
 }
