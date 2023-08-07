@@ -57,8 +57,6 @@ public class Appium6NativeChrome {
 
         System.out.println("driver.getContext() = " + driver.getContext());
 
-
-
       //  WebElement homepage = driver.findElement(AppiumBy.accessibilityId("Amazon"));
 
        WebElement homepage= wait.until(ExpectedConditions.presenceOfElementLocated(AppiumBy.accessibilityId("Amazon")));
@@ -68,8 +66,6 @@ public class Appium6NativeChrome {
         WebElement signIn = driver.findElement(AppiumBy.xpath("\t\n" +
                 "//android.view.View[@content-desc=\"your account\"]/android.widget.TextView"));
         signIn.click();
-
-
 
         WebElement welcome = wait.until(ExpectedConditions.presenceOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@text='Welcome']")));
         Assert.assertTrue(welcome.getText().contains("Welcome"));
