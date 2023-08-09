@@ -1,5 +1,6 @@
 package appium;
 
+import Appium.BaseClass;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -11,10 +12,12 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Appium09UiSelectorTestCase {
+public class Appium09UiSelectorTestCase extends BaseClass {
 
     @Test
     public void test() throws MalformedURLException, InterruptedException {
+        /* BaseClass dan tanımladığımız driver ı çağırıyoruz
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
@@ -27,6 +30,10 @@ public class Appium09UiSelectorTestCase {
         capabilities.setCapability("noReset","true");
 
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), capabilities);
+
+        */
+         AndroidDriver driver=getAndroidDriver(); //getAndroidDriver() metodu BaseClass ta
+
         //add button tikladik
         driver.findElement(new AppiumBy.ByAndroidUIAutomator("UiSelector().className(\"android.widget.Button\").textStartsWith(\"Add\")")).click();
 
